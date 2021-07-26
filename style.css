@@ -1,34 +1,30 @@
-body {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
+.container {
+  width: 90%;
+  padding: 3rem;
 }
 
 #message-container {
-  width: 80%;
-  max-width: 1200px;
+  height: 70vh;
+  background-color: #ddd;
+  overflow: auto;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 1rem;
 }
 
-#message-container div {
-  background-color: #ccc;
-  padding: 5px;
-}
-
-#message-container div:nth-child(2n) {
-  background-color: #fff;
-}
-
-#send-container {
-  position: fixed;
-  padding-bottom: 30px;
-  bottom: 0;
-  background-color: white;
-  max-width: 1200px;
-  width: 80%;
+.message-box {
+  width: 30%;
+  border-radius: 15px;
+  padding: 0.2rem 1rem;
+  margin-bottom: 0.5rem;
   display: flex;
 }
 
-#message-input {
-  flex-grow: 1;
+.user-message {
+  background-color: salmon;
+}
+
+.partner-message {
+  background-color: lightsalmon;
+  margin-left: auto;
 }
