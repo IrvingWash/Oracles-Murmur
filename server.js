@@ -18,7 +18,7 @@ io.on('connection', (socket) => {
     });
   });
   socket.on('disconnect', () => {
-    socket.broadcast.emit('user-dicsonnected', user[socket.id]);
-    delete user[socket.id];
+    socket.broadcast.emit('user-disconnected', users[socket.id]);
+    delete users[socket.id];
   });
 });

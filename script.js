@@ -9,7 +9,7 @@ const messageInput = document.getElementById('message-input');
 // Get user's name
 const name = prompt('Enter your name');
 // Notify that user's joined
-appendMessage(`${name} (you) joined`);
+appendMessage(`${name} (you) joined`, true);
 // Send user's name to the server
 socket.emit('new-user', name);
 
@@ -32,13 +32,19 @@ socket.on('chat-message', (data) => {
 messageForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const message = messageInput.value;
-  appendMessage(`You: ${message}`);
+  appendMessage(`You: ${message}`, true);
   socket.emit('send-chat-message', message);
   messageInput.value = '';
 });
 
-function appendMessage(message) {
+function appendMessage(message, isUser) {
   const messageElement = document.createElement('div');
+  messageElement.classList.add('message-box');
+  if (isUser) {
+    messageElement.classList.add('user-message');
+  } else {
+    messageElement.classList.add('partner-message');
+  }
   messageElement.innerText = message;
   messageContainer.append(messageElement);
 }
